@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+<div class="'container mt-4">
+    <div class="row">
+    <div class="col-md-3 ml-5">
+    <h2>Create new account</h2>
+    <form action="{% url 'signup' %}" method="POST">
+        {% csrf_token %}
+    
+    <div class="form-group">
+    <label>Name</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" name="Username"aria-describedby="" placeholder="Enter name">
+    
+    </div>
+    
+    <div class="form-group">
+    <label>Email address</label>
+    <input type="email" class="form-control" id="exampleInputEmail1" name="Email" placeholder="Enter email">
+    
+    </div>
+    <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" name="Password" placeholder="Password">
+    </div>
+    
+    <button type="signup" class="btn btn-primary float-right">Signup</button>
+    </form>
+    <br>
+    <br>
+    {% if user %}
+    New user created with username  {{user.username}}
+    <a href="/login" class="font-weight-bold  btn btn-primary">Login</a>
+    
+    {% endif %}
+    <p style="background-color: red;">
+    {% if error_message %}
+    New user created with username  {{error_message}}
+    {% endif %}
+    </p>
+            </div>
+        </div>
+    </div>
+    {% endblock content %}
+
+    
+    

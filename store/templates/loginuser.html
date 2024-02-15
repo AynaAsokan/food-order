@@ -1,0 +1,37 @@
+
+{% extends "layout.html" %}
+
+{% block content %}
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="'container mt-4">
+    <div class="row">
+    <div class="col-md-3 ml-5">
+    <form action="{% url 'login' %}" method="POST">
+    {% csrf_token %}
+    
+    <div class="form-group">
+    <label>UserName</label>
+    <input type="text" class="form-control" id="" name="Username"aria-describedby="" placeholder="">
+    </div>
+    
+    <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" id="exampleInputPassword1" name="Password" placeholder="Password">
+    </div>
+    <a href="{% url 'signup' %}"><h3 class="btn btn-primary">Create new account?</h3></a>
+    <button type="submit" class="btn btn-success float-right">Submit</button>
+    </form>
+    <p style="background-color: red;">
+        {% if error_message %}
+        {{error_message}}
+        {% endif %}
+        </p>
+            </div>
+        </div>
+    </div>
+    {% endblock content %}
